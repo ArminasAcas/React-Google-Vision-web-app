@@ -1,4 +1,15 @@
 .image {
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.image--show {
     max-width: 250px;
     max-height: 250px;
+}
+
+.image--empty {
+    width: 250px;
+    height: 250px;
+    background-color: rgb(166, 164, 180);
 }

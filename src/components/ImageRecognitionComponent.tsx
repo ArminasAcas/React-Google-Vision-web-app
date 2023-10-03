@@ -15,8 +15,6 @@ export default function ImageRecognition() {
             <input className="image-form__input" type="file" accept="image/*" onChange={HandleChange}></input>
             <button >Atpažinti objektus</button>
         </form>
-
-        
         </>
     )
 }
