@@ -13,7 +13,7 @@ export default function ImageRecognition() {
         <form className="image-form">
             <Image imageURL={image}></Image>
             <input className="image-form__input" type="file" accept="image/*" onChange={HandleChange}></input>
-            <button >Atpažinti objektus</button>
+            <button className="image-form__button">Atpažinti objektus</button>
         </form>
         </>
     )

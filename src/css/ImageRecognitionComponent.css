@@ -14,5 +14,12 @@
 }
 
 .image-form__input {
-    width: 200px;
+    width: 250px;
+    font-size: large;
+    border: 10px;
+}
+
+.image-form__button {
+    font-size: large;
+    padding: 10px 20px 10px 20px;
 }
