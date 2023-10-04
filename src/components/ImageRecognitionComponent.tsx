@@ -16,7 +16,24 @@ export default function ImageRecognition() {
 
     function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault();
+
+        try
+        {
+            fetch
+            ( 
+                "http://localhost:4000/send-data-image",
+                {
+                    method: "POST",
+                    body: ImageFile
+                }
+            )
+        }
+        catch
+        {
+            alert("Įvyko klaida !");
+        }
     }
+    
     return(
         <>
         <form className="image-form">
