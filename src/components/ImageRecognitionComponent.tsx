@@ -5,6 +5,7 @@ import "../css/ImageRecognitionComponent.css"
 export default function ImageRecognition() {
     const [imageURL, setImageURL] = useState(""); 
     const [ImageFile, setImageFile] = useState<File | null>(null);
+    const [detectedObjects, setDetectedObjects] = useState(null);
 
     function HandleChange(e: React.ChangeEvent<HTMLInputElement>){
         if(e.target.files)
@@ -14,24 +15,37 @@ export default function ImageRecognition() {
         } 
     }
 
-    function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    async function handleClick(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
         e.preventDefault();
+        
+        const formData = new FormData();
+        if (ImageFile) formData.append('ImageFile', ImageFile);
 
         try
         {
-            fetch
-            ( 
-                "http://localhost:4000/send-data-image",
+           fetch("http://localhost:4000/send-data-image",
                 {
                     method: "POST",
-                    body: ImageFile
+                    body: formData
                 }
-            )
+           )
+           .then(async (res) => 
+                {
+                    if (res.ok) 
+                    {
+                        const detectedObjectArray = await res.json();
+                        setDetectedObjects(detectedObjectArray);
+                        console.log(detectedObjectArray);
+                    }
+                    else console.log("Klaida");
+                }
+           );  
         }
-        catch
+        catch(error)
         {
-            alert("Įvyko klaida !");
+            alert(error);
         }
+        
     }
     
     return(
@@ -41,6 +55,8 @@ export default function ImageRecognition() {
             <input className="image-form__input" type="file" accept="image/*" onChange={HandleChange}></input>
             <button className="image-form__button" onClick={handleClick}>Atpažinti objektus</button>
         </form>
+
         </>
+        
     )
 }
