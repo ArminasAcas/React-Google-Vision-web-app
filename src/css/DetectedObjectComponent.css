@@ -1,0 +1,11 @@
+.object {
+    border: solid white 2px;
+    border-radius: 10px;
+    font-size: x-large;
+    color: black;
+    background-color: rgb(206, 206, 213);
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}

@@ -1,11 +1,17 @@
 import { useState } from "react"
 import Image from "./ImageComponent";
 import "../css/ImageRecognitionComponent.css"
+import DetectedObject from "./DetectedObjectComponent";
+
+interface detectedObjectInterface {
+    ObjectName: string;
+    ObjectScore: number;
+  }
 
 export default function ImageRecognition() {
     const [imageURL, setImageURL] = useState(""); 
     const [ImageFile, setImageFile] = useState<File | null>(null);
-    const [detectedObjects, setDetectedObjects] = useState(null);
+    const [detectedObjects, setDetectedObjects] = useState<detectedObjectInterface[]>([]);
 
     function HandleChange(e: React.ChangeEvent<HTMLInputElement>){
         if(e.target.files)
@@ -48,6 +54,13 @@ export default function ImageRecognition() {
         
     }
     
+    let objects;
+    if (detectedObjects) {
+        objects = detectedObjects.map((obj, index) => 
+        <DetectedObject objectName={obj.ObjectName} objectScore={obj.ObjectScore.toString()}></DetectedObject>
+        );      
+    };
+    
     return(
         <>
         <form className="image-form">
@@ -55,7 +68,11 @@ export default function ImageRecognition() {
             <input className="image-form__input" type="file" accept="image/*" onChange={HandleChange}></input>
             <button className="image-form__button" onClick={handleClick}>Atpažinti objektus</button>
         </form>
-
+        
+        <div className="image-form__result">
+            {objects ? objects : null}
+        </div>
+        
         </>
         
     )
