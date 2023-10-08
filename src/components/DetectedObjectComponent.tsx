@@ -4,8 +4,8 @@ export default function DetectedObject(props: {objectName: string, objectScore: 
 
     return(
         <div className="object">
-            <span>{props.objectName}</span>
-            <span>{props.objectScore + "% Užtikrintumas"}</span>
+            <span className="object__label">{props.objectName}</span>
+            <span>{ "(" + props.objectScore + "% Užtikrintumas)"}</span>
         </div>
     )
 }

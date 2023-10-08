@@ -1,0 +1,10 @@
+.info-block {
+    text-align: center;
+    padding: 20px 40px 20px 40px;
+    border: solid white 2px;
+    border-radius: 10px;
+    font-size: xx-large;
+    background-color: rgb(206, 206, 213);
+    color: black;
+    margin-top: 10px;
+}

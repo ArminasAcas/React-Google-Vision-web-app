@@ -7,5 +7,9 @@
     padding: 25px;
     display: flex;
     flex-direction: row;
-    gap: 25px;
+    gap: 20px;
+}
+
+.object__label {
+    font-weight: bold;
 }
