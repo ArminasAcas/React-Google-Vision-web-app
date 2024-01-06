@@ -1,5 +1,7 @@
 # React + TypeScript + Vite
 
+https://github.com/ArminasAcas/React-Google-Vision-web-app/assets/140112139/cad00092-6e16-4922-9f01-111a5727119c
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
